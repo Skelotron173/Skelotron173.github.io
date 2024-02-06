@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>I Love Sophia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(251, 247, 247, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        video {
+            width: 200px; 
+            margin-bottom: 10px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        p {
+            font-size: 24px;
+            font-family: 'Hachi Maru Pop', cursive;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            gap: 10px; 
+        }
+
+        .green-button {
+            background-color: pink;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Hachi Maru Pop', cursive;
+            cursor: pointer;
+        }
+
+        .red-button {
+            background-color: rgb(255, 134, 134);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: 'Hachi Maru Pop', cursive;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const noButton = document.querySelector('.red-button');
+            const yesButton = document.querySelector('.green-button');
+            const messages = [
+                "Are you sure?",
+                "Really sure?",
+                "Are you positive???",
+                "Pretty please",
+                "Just think about it",
+                "If you say no I'll be very sad",
+                "I'll be very very sad",
+                "I'll be very very very sad",
+                "I'll be very very very very sad",
+                "Ok fine I'll stop asking",
+                "Just kidding PLEASE SAY YES",
+                "I'll be very very very very very sad",
+                "You're breaking my heart :(", 
+                "Meanie",
+                "HMPH!",
+                "You know what!"
+            ];
+
+            let noButtonClickCount = 0;
+
+            noButton.addEventListener('click', function () {
+                noButton.innerText = messages[noButtonClickCount % messages.length];
+                noButtonClickCount++;
+
+                const currentFontSize = parseInt(getComputedStyle(yesButton).fontSize);
+                yesButton.style.fontSize = (currentFontSize + 20) + 'px';
+
+                const currentWidth = parseInt(getComputedStyle(yesButton).width);
+                const currentHeight = parseInt(getComputedStyle(yesButton).height);
+                yesButton.style.width = (currentWidth + 80) + 'px';
+                yesButton.style.height = (currentHeight + 80) + 'px';
+
+                if (noButtonClickCount >= 17) {
+                    noButton.style.display = 'none';
+                }
+
+                noButton.style.fontSize = '';
+                noButton.style.height = '50px';
+            });
+
+            yesButton.addEventListener('click', function () {
+                window.location.href = 'page3.html';
+            });
+
+            noButton.addEventListener('click', function () {
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <video autoplay loop="" src="love.webm"></video>
+    <div class="content">
+        <p>Will you be my Valentine?</p>
+        <div class="buttons">
+            <button class="green-button">Yes</button>
+            <button class="red-button">No</button>
+        </div>
+    </div>
+</body>
+
+</html>
